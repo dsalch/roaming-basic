@@ -1,8 +1,26 @@
+/**
+ * Basic Roaming project demonstrating :
+ * 
+ *   Ultrasonic Distance sensors
+ * 
+ *   InfraRed Avoidance Sensors
+ * 
+ *   Decision Making
+ */
 basic.showIcon(IconNames.Happy)
 basic.forever(function () {
-    if (mbit_Robot.Ultrasonic_Car() > 60) {
-    	
-    } else {
-    	
+    while (mbit_Robot.Avoid_Sensor(mbit_Robot.enAvoidState.NOOBSTACLE)) {
+        if (mbit_Robot.Ultrasonic_Car() > 60) {
+            mbit_Robot.CarCtrlSpeed(mbit_Robot.CarState.Car_Run, 50)
+            mbit_Robot.RGB_Car_Big2(mbit_Robot.enColor.Green)
+        } else if (mbit_Robot.Ultrasonic_Car() < 30) {
+            mbit_Robot.CarCtrlSpeed(mbit_Robot.CarState.Car_SpinRight, 50)
+            mbit_Robot.RGB_Car_Big2(mbit_Robot.enColor.Yellow)
+        }
     }
+    mbit_Robot.RGB_Car_Big2(mbit_Robot.enColor.Red)
+    mbit_Robot.CarCtrlSpeed(mbit_Robot.CarState.Car_Back, 45)
+    basic.pause(2000)
+    mbit_Robot.CarCtrlSpeed(mbit_Robot.CarState.Car_SpinLeft, 45)
+    basic.pause(1000)
 })
