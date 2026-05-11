@@ -8,6 +8,7 @@
  *   Decision Making
  */
 basic.showIcon(IconNames.Happy)
+mbit_Robot.look(mbit_Robot.enLook.Forward)
 basic.forever(function () {
     while (mbit_Robot.Avoid_Sensor(mbit_Robot.enAvoidState.NOOBSTACLE)) {
         if (mbit_Robot.Ultrasonic_Car() > 60) {
