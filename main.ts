@@ -11,10 +11,10 @@ basic.showIcon(IconNames.Happy)
 mbit_Robot.look(mbit_Robot.enLook.Forward)
 basic.forever(function () {
     while (mbit_Robot.Avoid_Sensor(mbit_Robot.enAvoidState.NOOBSTACLE)) {
-        if (mbit_Robot.Ultrasonic_Car() > 60) {
+        if (mbit_Robot.Ultrasonic_Car() > 70) {
             mbit_Robot.CarCtrlSpeed(mbit_Robot.CarState.Car_Run, 50)
             mbit_Robot.RGB_Car_Big2(mbit_Robot.enColor.Green)
-        } else if (mbit_Robot.Ultrasonic_Car() < 30) {
+        } else if (mbit_Robot.Ultrasonic_Car() < 40) {
             mbit_Robot.CarCtrlSpeed(mbit_Robot.CarState.Car_SpinRight, 50)
             mbit_Robot.RGB_Car_Big2(mbit_Robot.enColor.Yellow)
         }
